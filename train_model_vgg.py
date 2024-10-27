@@ -5,7 +5,7 @@ from glob import glob
 import numpy as np
 from keras import layers
 from keras import models
-from keras.layers.advanced_activations import LeakyReLU
+from tensorflow.keras.layers import LeakyReLU
 from keras.optimizers import Adam
 import keras.backend as K
 import librosa
