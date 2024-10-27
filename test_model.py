@@ -50,18 +50,7 @@ test_generator=test_datagen.flow_from_dataframe(
     shuffle=False,
     class_mode=None,
     target_size=(64,64))
-'''
-test_generator_vgg=test_datagen.flow_from_dataframe(
-    dataframe=testdf,
-    directory=test_data_path,
-    x_col="slice_file_name",
-    y_col=None,
-    batch_size=32,
-    seed=42,
-    shuffle=False,
-    class_mode=None,
-    target_size=(224,224))
-'''
+
 # TInh so buoc test
 STEP_SIZE_TEST=test_generator.n//test_generator.batch_size
 
@@ -85,26 +74,7 @@ predictions = [labels[k] for k in predicted_class_indices]
 print("Prediction values= ",predictions[0:10])
 print("Real values=",testdf.head(10)["class"])
 
-'''
-# Tien hanh predict
-test_generator_vgg.reset()
 
-# Load model da train
-model = load_model('modelvgg.h5')
-pred = model.predict_generator(test_generator_vgg,steps=STEP_SIZE_TEST,verbose=1)
-
-
-# Lay class predict probality lon nhat
-predicted_class_indices=np.argmax(pred,axis=1)
-# Load class name tu file
-with open('model_indices.pickle', 'rb') as handle:
-    labels = pickle.load(handle)
-
-# HIen thi ket qua predict ra man hinh
-labels = dict((v,k) for k,v in labels.items())
-predictions = [labels[k] for k in predicted_class_indices]
-print("Prediction values= ",predictions[0:10])
-print("Real values=",testdf.head(10))'''
 
 
 
