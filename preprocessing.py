@@ -47,7 +47,7 @@ def create_spectrogram(filename,name, file_path):
     del filename,name,clip,sample_rate,fig,ax,S
 
 # Lap trong thu muc data/wav/train va tao ra 4000 file anh spectrogram
-Data_dir=np.array(glob(wav_path+"train/*"))
+Data_dir=np.array(glob(wav_path+"train.csv/*"))
 
 for file in Data_dir[0:4000]:
     filename,name = file,file.split('/')[-1].split('.')[0]
@@ -56,7 +56,7 @@ for file in Data_dir[0:4000]:
 gc.collect()
 
 # Lap trong thu muc data/wav/test va tao ra 3000 file anh spectrogram
-Test_dir=np.array(glob(wav_path+"test/*"))
+Test_dir=np.array(glob(wav_path+"test.csv/*"))
 
 
 for file in Test_dir[0:3000]:
